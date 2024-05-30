@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+}
+
+.container {
+    width: 29%;
+    height: 450px;
+    margin-top: 10%;
+    background-color: black;
+}
+
+.card {
+    background-color: transparent;
+    border: 5px solid white;
+    background: linear-gradient(150deg, #5a5a5a 65%, #080808 35%);
+
+}
+
+.pantalla {
+    height: 50px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.btn-numero {
+    width: 20%;
+    height: 40px;
+    margin: 6px;
+    background-color: rgba(220, 20, 60, 0.726);
+}
+
+.btn-numero:hover {
+    background-color: #FC466B;
+}
+
+.btn-operador {
+    width: 20%;
+    height: 40px;
+    margin: 6px;
+    background-color: crimson;
+}
+
+.btn-operador:hover {
+    background-color: #0000FF;
+}
+
+.btn-borrar {
+    width: 20%;
+    height: 40px;
+    margin: 6px;
+    background-color: crimson;
+}
+
+.btn-borrar:hover {
+    background-color: #FF4500;
+}
+
+.btn-igual {
+    width: 20%;
+    height: 40px;
+    margin: 6px;
+    background-color: crimson;
+}
+
+.btn-igual:hover {
+    background-color: #03C03C;
+}
+
+i:hover {
+    color: #3F00FF;
+}

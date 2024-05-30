@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/Style.css">
+    <link rel="stylesheet" href="./assets/Iconos/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container shadow-lg p-5 border border-2 border-light-subtle rounded-4">
+
+        <div class="card p-3 shadow  rounded-4">
+            <input id="input-pantalla" type="text" class="pantalla rounded-3 text-end fs-3 text-white" readonly>
+        </div>
+
+        <hr class="mt-4 border  border-5 ">
+
+        <div class="mt-4 ms-1 ">
+            <button class="rounded text-white fw-bold btn-numero" value="1">1</button>
+            <button class="rounded text-white fw-bold btn-numero" value="2">2</button>
+            <button class="rounded text-white fw-bold btn-numero" value="3">3</button>
+            <button id="plus" class="rounded text-white fw-bold btn-operador" value="+">+</button>
+
+            <button class="rounded text-white fw-bold btn-numero" value="4">4</button>
+            <button class="rounded text-white fw-bold btn-numero" value="5">5</button>
+            <button class="rounded text-white fw-bold btn-numero" value="6">6</button>
+            <button id="times" class="rounded text-white fw-bold btn-operador" value="*">*</button>
+
+            <button class="rounded text-white fw-bold btn-numero" value="7">7</button>
+            <button class="rounded text-white fw-bold btn-numero" value="8">8</button>
+            <button class="rounded text-white fw-bold btn-numero" value="9">9</button>
+            <button id="divided" class="rounded text-white fw-bold btn-operador" value="/">/</button>
+
+            <button class="rounded text-white fw-bold btn-numero" value="0">0</button>
+            <button class="rounded text-white fw-bold btn-borrar fst-italic" value="Limpiar">Limpiar</button>
+            <button class="rounded text-white fw-bold btn-igual" value="=">=</button>
+            <button id="minus" class="rounded text-white fw-bold btn-operador" value="-">-</button>
+        </div>
+    </div>
+    <div class="border-4 border w-100 mt-4">
+        <h1 class="text-center m-5 text-white">~ <i class="bi bi-calculator me-3"></i>CALCULADORA<i
+                class="bi bi-calculator-fill ms-3"></i> ~</h1>
+    </div>
+
+    <script src="./assets/js/bootstrap.bundle.js"></script>
+    <script src="./assets/js/Index.js"></script>
+</body>
+
+</html>
