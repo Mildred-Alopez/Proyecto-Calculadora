@@ -1,72 +1,100 @@
-const input = document.querySelector('#input-pantalla')
-const btnNumero = document.querySelectorAll('.btn-numero')
-const btnLimpiar = document.querySelector('.btn-borrar')
-const btnIgual = document.querySelector('.btn-igual')
-const btnSumar = document.querySelector('#plus')
-const btnMultiplicar = document.querySelector('#times')
-const btnDividir = document.querySelector('#divided')
-const btnRestar = document.querySelector('#minus')
+let input = document.querySelector('#input-pantalla')
+let btnNumeros = document.querySelectorAll('.btn-numero')
+let btnsAccion = document.querySelectorAll('.accion')
+let clear = document.querySelector('.borrar')
 
-let primerN = '0'
-let Snumero = '0'
+let primerNumero = 0;
+let SegundoNumero = 0;
 let signo = ''
+let acumulador = 0
+let primeraVez = true;
+let acumuladorMultiplicar = 1
+let acumuladorDividir = true
 
 
-btnNumero.forEach((btn) => {
+btnNumeros.forEach((btn) => {
     btn.addEventListener('click', () => {
         input.value += btn.value
     })
 })
 
+btnsAccion.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        if (e.target.value == '+' || e.target.value == '*'
+            || e.target.value == '-' || e.target.value == '/') {
 
+            primerNumero = parseInt(input.value)
+            console.log(primerNumero)
+            switch (e.target.value) {
 
-btnSumar.addEventListener('click', () => {
-    primerN = input.value
-    input.value = ''
-    signo = '+'
+                case '+':
+                    acumulador = acumulador + primerNumero
+                    break;
+
+                case '-':
+                    if (primeraVez) {
+                        acumulador = primerNumero - Math.abs(acumulador)
+                        console.log(acumulador)
+                        primeraVez = false;
+                    } else if (acumulador >= 0) {
+                        acumulador = Math.abs(acumulador) - primerNumero
+                    }
+                    break;
+
+                case '*':
+                    acumuladorMultiplicar = acumuladorMultiplicar * primerNumero
+                    break;
+
+                case '/':
+                    if (acumuladorDividir) {
+                        acumulador = acumulador + primerNumero
+                        console.log(acumulador)
+                        acumuladorDividir = false;
+                    } else {
+                        acumulador = acumulador / primerNumero
+                        console.log(acumulador)
+                    }
+                    break;
+            }
+
+            input.value = ''
+            signo = e.target.value
+
+        } else if (e.target.value == '=') {
+            
+            if (signo == '+') {
+                SegundoNumero = parseInt(input.value)
+                let resultado = acumulador + SegundoNumero
+                input.value = resultado
+
+            } else if (signo == '-') {
+                SegundoNumero = parseInt(input.value)
+                let resultado = acumulador - SegundoNumero;
+                primeraVez = true
+                input.value = resultado
+
+            } else if (signo == '*') {
+                SegundoNumero = parseInt(input.value)
+                let resultado = acumuladorMultiplicar * SegundoNumero;
+                acumuladorMultiplicar = 1
+                input.value = resultado
+
+            } else if (signo == '/') {
+                SegundoNumero = parseInt(input.value)
+                let resultado = acumulador / SegundoNumero;
+                acumuladorDividir = true
+                console.log(acumuladorDividir)
+                input.value = resultado
+            }
+            acumulador = 0
+
+        }
+    })
 })
 
-
-btnMultiplicar.addEventListener('click', () => {
-    primerN = input.value
+clear.addEventListener('click', () => {
     input.value = ''
-    signo = '*'
-})
-
-btnDividir.addEventListener('click', () => {
-    primerN = input.value
-    input.value = ''
-    signo = '/'
-})
-
-btnRestar.addEventListener('click', () => {
-    primerN = input.value
-    console.log(primerN)
-    input.value = ''
-    signo = '-'
-})
-
-
-btnIgual.addEventListener('click', () => {
-    Snumero = input.value
-
-    if (signo == '+') {
-        total = parseInt(primerN) + parseInt(Snumero)
-        input.value = total
-    } else if (signo == '*') {
-        total = parseInt(primerN) * parseInt(Snumero)
-        input.value = total
-    } else if (signo == '/') {
-        total = parseInt(primerN) / parseInt(Snumero)
-        input.value = total
-    } else if (signo == '-') {
-        total = parseInt(primerN) - parseInt(Snumero)
-        input.value = total
-        console.log(total)
-    }
-})
-
-
-btnLimpiar.addEventListener('click', () => {
-    input.value = ''
+    acumuladorMultiplicar = 1
+    acumuladorDividir = true
+    primeraVez = true
 })
